@@ -22,13 +22,15 @@ jobs:
       # Step 1: Fetch your live GitHub data. 
       # (Adjust the command below if your CLI uses a different fetch/update flag)
       - name: Fetch Live GitHub Data
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          cargo run -- fetch --username ${{ github.repository_owner }} --token ${{ secrets.GITHUB_TOKEN }} --output MyGithubAccount.json
+          cargo run -- collect ${{ github.repository_owner }} --output MyGithubAccount.json
 
       # Step 2: Render the updated GIF using the data
       - name: Render Raven GIF
         run: |
-          cargo run --release -- render Rodgerss111.json --output-dir output
+          cargo run --release -- render MyGithubAccount.json --output-dir output
 
       # Step 3: Commit and push the new GIF back to your profile repository
       - name: Commit and Push Changes
