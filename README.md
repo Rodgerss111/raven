@@ -29,13 +29,22 @@ Consistency is rewarded. The raven defaults to a charcoal-dark plumage, but will
 
 ### Dynamic Language Aura
 When the raven is in flight, it emits an orbital, figure-8 particle aura. 
-* **Charcoal Form:** The aura's color is dynamically extracted from your GitHub repository analytics. It maps specifically to your tertiary (3rd) most-used language—representing the most recent or niche technology stack you are actively adopting.
+* **Charcoal Form:** The aura's color is dynamically extracted from your GitHub repository analytics. It maps specifically to your tertiary (3rd) most-used language, representing the most recent or niche technology stack you are actively adopting.
 * **Golden Form:** The aura transforms into a brilliant golden glow (`[255, 245, 180]`) to match the milestone plumage.
 
 ### Flight Mechanics & Growth
 * **Dynamic Scaling:** The bird physically grows in size (`scale_x` and `scale_y`) as your total lifetime contributions increase.
 * **Adaptive Behaviors:** The flight path changes based on your daily activity intensity. Behaviors include *Cruise*, *Hover*, *Surface Feeding*, *Deep Rest*, and *Dart*. 
 * **Aerodynamic Banking:** As the raven drifts across the 256x256 frame, it physically banks and leans into its turns, with mathematically guaranteed boundary clamping to ensure its wings and aura never clip the edges.
+
+### Plumage & Wing Coloration
+The wing structure and overall body feathers are dynamically driven by your historical lifetime contributions, repository language distribution, and daily consistency streaks.
+
+Base Plumage Palette: The default body features a charcoal-dark outline and plumage base ([35, 38, 42]), giving the raven its signature dark silhouette.
+
+Streak-Injected Feather Texturing: When an active contribution streak is detected, individual feather pixels across the wings and body dynamically mix in a warm streak tint ([254, 174, 52]) based on hash-sampled density thresholds. This creates a weathered, active texture that scales in intensity relative to streak strength.
+
+Language-Derived Shading: Secondary and tertiary pixel clusters across the wings are mapped directly to color values extracted from your most frequently used programming languages. The engine samples the top repository language shares, blending their hex values into the wing structure to reflect your actual tech stack.
 
 ## How It Works
 
