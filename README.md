@@ -1,5 +1,11 @@
 # Git Raven
-
+<div align="center">
+  <a href="https://github.com/Rodgerss111?tab=repositories">
+    <picture>
+      <img src="https://raw.githubusercontent.com/Rodgerss111/raven/main/output/koi.gif" alt="Git Raven Animation" width="400">
+    </picture>
+  </a>
+</div>
 Git Raven is a Rust command-line project that turns a GitHub account's public
 activity into a pixel-art animal animation. It collects an account snapshot and
 renders a GIF, PNG, and browser preview based on the account's activity.
