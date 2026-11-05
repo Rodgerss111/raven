@@ -2,15 +2,14 @@ name: Update Git Raven
 
 on:
   schedule:
-    # Runs automatically at midnight UTC every day
     - cron: "0 0 * * *"
-  workflow_dispatch: # Allows you to manually trigger the workflow from the Actions tab
+  workflow_dispatch:
 
 jobs:
   update-raven:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Required to push the updated GIF back to the repository
+      contents: write 
 
     steps:
       - name: Checkout repository
@@ -19,23 +18,21 @@ jobs:
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
-      # Step 1: Fetch your live GitHub data. 
-      # (Adjust the command below if your CLI uses a different fetch/update flag)
-      - name: Fetch Live GitHub Data
+      # Fixed: Uses 'collect', passes the username directly, and sets the GH_TOKEN environment variable
+      - name: Collect Live GitHub Data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cargo run -- fetch --username ${{ github.repository_owner }} --token ${{ secrets.GITHUB_TOKEN }} --output MyGithubAccount.json
+          cargo run -- collect ${{ github.repository_owner }} --output MyGithubAccount.json
 
-      # Step 2: Render the updated GIF using the data
       - name: Render Raven GIF
         run: |
-          cargo run --release -- render Rodgerss111.json --output-dir output
+          cargo run --release -- render MyGithubAccount.json --output-dir output
 
-      # Step 3: Commit and push the new GIF back to your profile repository
       - name: Commit and Push Changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add output/
-          # Only commit if there are changes to avoid failing the workflow
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: update raven animation"
           git push

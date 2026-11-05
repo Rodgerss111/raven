@@ -430,7 +430,7 @@ fn get_language_colors(dev: &KoiDevelopment, color_fraction: f64) -> [[u8; 4]; 3
     let f = color_fraction.clamp(0.0, 1.0);
     
     for (i, c) in colors.iter_mut().enumerate() {
-        let mut mix = match i {
+        let mix = match i {
             0 => (f / 0.15).clamp(0.0, 1.0),
             1 => ((f - 0.15) / 0.45).clamp(0.0, 1.0),
             _ => ((f - 0.60) / 0.40).clamp(0.0, 1.0),
