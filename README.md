@@ -8,11 +8,7 @@
 </div>
 Git Raven is a Rust command-line project that turns a GitHub account's public
 activity into a pixel-art animal animation. It collects an account snapshot and
-renders a GIF, PNG, and browser preview based on the account's activity.
-
-Git Raven is a dynamic, Rust-based rendering engine that generates an animated raven for your GitHub profile README. Unlike static images, this raven is directly tethered to your live GitHub activity, evolving, growing, and changing colors based on your daily coding consistency and technological stack.
-
-The engine runs entirely via GitHub Actions, automatically fetching your contribution graph every night and rendering a fresh GIF to reflect your latest work.
+renders a GIF, PNG, and browser preview based on the account's activity. Git Raven is a dynamic, Rust-based rendering engine that generates an animated raven for your GitHub profile README. Unlike static images, this raven is directly tethered to your live GitHub activity, evolving, growing, and changing colors based on your daily coding consistency and technological stack. The engine runs entirely via GitHub Actions, automatically fetching your contribution graph every night and rendering a fresh GIF to reflect your latest work.
 
 ## Dynamic Features & Activity Tracking
 
